@@ -51,7 +51,7 @@ http {
         }
 
         # user-defined config
-        include <%= ENV['OPENSHIFT_REPO_DIR'] %>/conf.d/*.conf;
+        include <%= ENV['OPENSHIFT_REPO_DIR'] %>/config/nginx.d/*.conf;
     }
 
 }
