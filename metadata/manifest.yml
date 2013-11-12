@@ -11,6 +11,7 @@ Cartridge-Version: 0.0.1
 Compatible-Versions: []
 Cartridge-Vendor: getup
 Categories:
+  - service
   - web_framework
 Website: http://nginx.org
 Cart-Data:
