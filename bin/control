@@ -2,11 +2,14 @@
 
 source $OPENSHIFT_CARTRIDGE_SDK_BASH
 
+set -x
+
 NGINX_CFG_FILE=$OPENSHIFT_NGINX_DIR/configuration/etc/nginx.conf
 NGINX_PID_FILE=$OPENSHIFT_NGINX_DIR/run/nginx.pid
 
 function start() {
-    /usr/sbin/nginx -c $NGINX_CFG_FILE -g "error_log $OPENSHIFT_NGINX_LOG_DIR/error.log;" >> $OPENSHIFT_NGINX_LOG_DIR/error.log 2>&1
+    export PERLLIB=$OPENSHIFT_NGINX_DIR/usr/lib/perl5/
+    $OPENSHIFT_NGINX_DIR/usr/sbin/nginx -p $OPENSHIFT_NGINX_DIR -c $NGINX_CFG_FILE -g "error_log $OPENSHIFT_NGINX_LOG_DIR/error.log;" ## >> $OPENSHIFT_NGINX_LOG_DIR/error.log 2>&1
 }
 
 function stop() {
