@@ -1,0 +1,14 @@
+#!/bin/bash
+# Utility functions for use in the cartridge scripts.
+
+function build_nginx_config()
+{
+	echo Building nginx configuration
+
+	for conf in $OPENSHIFT_REPO_DIR/config/nginx.d/*.erb; do
+		[ -e "$conf" ] || continue
+
+		echo " ${conf#$OPENSHIFT_REPO_DIR}"
+		erb "$conf" > "${conf%.erb}"
+	done
+}

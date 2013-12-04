@@ -5,4 +5,14 @@ case "$1" in
     version="$2"
 esac
 
-# nothing to do here
+# Copy version specific files
+shopt -s dotglob
+
+if [ "$version" == '1.0' ]; then
+  VERSION_DIR=shared
+else
+  VERSION_DIR="$version"
+fi
+
+# build initial nginx config
+cp -Hr $OPENSHIFT_NGINX_DIR/versions/$VERSION_DIR/configuration/etc/* $OPENSHIFT_NGINX_DIR/configuration/etc/

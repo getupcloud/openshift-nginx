@@ -1,0 +1,6 @@
+#!/bin/bash
+
+source $OPENSHIFT_NGINX_DIR/lib/util
+
+# nginx config is rebuilt every deploy
+build_nginx_config
