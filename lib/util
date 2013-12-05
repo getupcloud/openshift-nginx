@@ -9,6 +9,6 @@ function build_nginx_config()
 		[ -e "$conf" ] || continue
 
 		echo " ${conf#$OPENSHIFT_REPO_DIR}"
-		erb "$conf" > "${conf%.erb}"
+		/usr/bin/oo-erb "$conf" > "${conf%.erb}"
 	done
 }
