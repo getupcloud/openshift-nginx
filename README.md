@@ -16,4 +16,4 @@ $ git push
 
 ## User-defined configuration
 
-Place your .conf files inside config/nginx.d/. It will be include()ed from "server" scope.
+Place your .conf files inside config/nginx.d/. It will be include()ed from inside "http" scope.
